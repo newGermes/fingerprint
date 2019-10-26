@@ -1,3 +1,15 @@
-import Fingerprint2 from "../node_modules/fingerprintjs2/fingerprint2.js";
+import Fingerprint2 from "fingerprintjs2";
 
-console.log(Fingerprint2);
+if (window.requestIdleCallback) {
+  requestIdleCallback(function() {
+    Fingerprint2.get(function(components) {
+      console.log(components); // an array of components: {key: ..., value: ...}
+    });
+  });
+} else {
+  setTimeout(function() {
+    Fingerprint2.get(function(components) {
+      console.log(components); // an array of components: {key: ..., value: ...}
+    });
+  }, 500);
+}
