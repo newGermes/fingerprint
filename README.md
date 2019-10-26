@@ -1,2 +1,2 @@
 # fingerprint
-Fingerprint for different browsers
+Fingerprint for different browsers based on fingerprintjs2
