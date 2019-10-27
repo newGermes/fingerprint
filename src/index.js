@@ -5,6 +5,11 @@ import { config } from "./config";
 import run from "./main";
 
 let isNext = true;
+if (!sessionStorage.getItem("test")) {
+  sessionStorage.setItem("test", "1234");
+} else {
+  console.log("session exist");
+}
 
 if (window.requestIdleCallback && isNext) {
   requestIdleCallback(() => {
