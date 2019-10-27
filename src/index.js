@@ -1,15 +1,21 @@
-import Fingerprint2 from "fingerprintjs2";
+"use strict";
 
-if (window.requestIdleCallback) {
-  requestIdleCallback(function() {
-    Fingerprint2.get(function(components) {
-      console.log(components); // an array of components: {key: ..., value: ...}
+import Fingerprint2 from "fingerprintjs2";
+import { config } from "./config";
+import run from "./main";
+
+let isNext = true;
+
+if (window.requestIdleCallback && isNext) {
+  requestIdleCallback(() => {
+    Fingerprint2.get(components => {
+      run(components, config);
     });
   });
-} else {
-  setTimeout(function() {
-    Fingerprint2.get(function(components) {
-      console.log(components); // an array of components: {key: ..., value: ...}
+} else if (isNext) {
+  setTimeout(() => {
+    Fingerprint2.get(components => {
+      run(components, config); // an array of components: {key: ..., value: ...}
     });
   }, 500);
 }
