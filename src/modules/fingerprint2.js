@@ -2,7 +2,7 @@ import Fingerprint2 from "fingerprintjs2";
 import fingerprintCo from "../config/fingerprint2";
 
 export default new Promise((resolve, reject) => {
-    try{
+    try {
         Fingerprint2.get(components => {
             resolve({ components, fingerprintCo });
         });

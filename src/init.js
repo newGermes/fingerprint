@@ -1,14 +1,12 @@
 'use strict';
 
 import fingerprint from './modules/fingerprint2';
+import asyncFn from './util/asyncFn'
 
 export default () => {
-    fingerprint
-    .then(data => {
-        console.log(data);
-    })
-    .catch(e => {
-        console.warn(e);
-    });
+    (async () => {
+        const finger = await asyncFn(fingerprint);
+        console.log(finger);
+    })();
 
 };
