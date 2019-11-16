@@ -1,6 +1,6 @@
 "use strict";
 
-export const config = [
+export default [
   "colorDepth",
   "hardwareConcurrency",
   "screenResolution",
