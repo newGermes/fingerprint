@@ -11,6 +11,5 @@ export default {
             if (hash) {
                 render.on();
             }
-            console.log(hash);
         })()
 };

@@ -1,11 +1,13 @@
 import Fingerprint2 from "fingerprintjs2";
 import fingerprintCo from "../config/fingerprint2";
-import hash from '../util/hash';
+import createHash from '../util/hash';
 
 export default new Promise((resolve, reject) => {
     try {
         Fingerprint2.get(components => {
-            resolve(hash(components, fingerprintCo));
+            createHash(components, fingerprintCo)
+                .then(hash => resolve(hash))
+                .catch(e => console.error(e));
         });
     } catch (e) {
         reject(e);
