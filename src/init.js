@@ -7,6 +7,9 @@ import render from './modules/render';
 export default () => {
     (async () => {
         const hash = await async(fingerprint);
+        if (hash) {
+            render.on();
+        }
         console.log(hash);
     })();
 };
