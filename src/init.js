@@ -2,7 +2,7 @@
 
 import fingerprint from './storage/fingerprint2';
 import async from './util/async';
-import render from './util/render';
+import render from './view/render';
 
 export default {
     start: () =>
