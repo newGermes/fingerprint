@@ -1,8 +1,8 @@
 'use strict';
 
-import fingerprint from './modules/fingerprint2';
+import fingerprint from './storage/fingerprint2';
 import async from './util/async';
-import render from './modules/render';
+import render from './util/render';
 
 export default {
     start: () =>
