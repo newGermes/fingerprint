@@ -1,5 +1,6 @@
 'use strict';
 
 export default {
-    selector: '.block'
+    selector: '.block',
+    period: 14 // days
 }

@@ -5,11 +5,14 @@ import indexedDB from './indexedDB';
 import localStorageDB from './localStorage';
 import remoteDB from './remoteDB';
 
+const storage = {
+    cookiesDB, 
+    indexedDB, 
+    localStorageDB, 
+    remoteDB 
+};
+
 export default {
-    get: type => {
-
-    },
-    set: (type, data) => {
-
-    }
+    get: type => storage[type].get(),
+    set: (type, data) => storage[type].set(type, data)
 };

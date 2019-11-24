@@ -10,6 +10,7 @@ export default {
             const hash = await async(fingerprint);
             if (hash) {
                 render.on();
+                render.click();
             }
         })()
 };
