@@ -14,5 +14,5 @@ const storage = {
 
 export default {
     get: type => storage[type].get(),
-    set: (type, data) => storage[type].set(type, data)
+    set: (type, data) => storage[type].set(type, data),
 };
