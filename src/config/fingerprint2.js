@@ -8,5 +8,6 @@ export default [
   "timezoneOffset",
   // "canvas",
   // "webgl",
-  "webglVendorAndRenderer"
+  "webglVendorAndRenderer",
+  "ip"
 ];

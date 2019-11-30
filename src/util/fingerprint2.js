@@ -3,10 +3,14 @@ import fingerprintCo from "../config/fingerprint2";
 import createHash from './hash';
 
 export default new Promise((resolve, reject) => {
+    const ipElm = document.querySelector('#fipr-stat');
+    const ip = ipElm ? ipElm.value : '';
+
     try {
         if (window.requestIdleCallback) {
             requestIdleCallback(() => {
                 Fingerprint2.get(components => {
+                    components.push({key: 'ip', value: ip});
                     createHash(components, fingerprintCo)
                         .then(hash => resolve(hash))
                         .catch(e => console.error(e));
@@ -15,6 +19,7 @@ export default new Promise((resolve, reject) => {
         } else {
             setTimeout(() => {
                 Fingerprint2.get(components => {
+                    components.push({key: 'ip', value: ip});
                     createHash(components, fingerprintCo)
                         .then(hash => resolve(hash))
                         .catch(e => console.error(e));
@@ -26,5 +31,3 @@ export default new Promise((resolve, reject) => {
         reject(e);
     }
 });
-
-// https://habr.com/ru/post/213515/ IndexedDB
