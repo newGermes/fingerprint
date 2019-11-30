@@ -14,6 +14,7 @@ export default {
         (async () => {
             const hash = await handle(fingerprint);
             const isFirst = await handle(storage.get('cookiesDB', 'init'));
+            const isFingerprint = await handle(storage.get('all', 'fingerprint'));
 
             if (isFirst) {
                 render.off();
