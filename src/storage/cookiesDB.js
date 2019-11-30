@@ -20,7 +20,7 @@ export default {
             setTimeout(() => {
                 try {
                     // "init={"hash": "dsfsdfsdf", "data": "13213123123123"}"
-                    document.cookie = `${key}=${data}`;
+                    document.cookie = `${key}=${JSON.stringify(data)}`;
                     resolve(true);
                 } catch (e) {
                     reject(e);

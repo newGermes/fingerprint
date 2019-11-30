@@ -23,6 +23,10 @@ export default {
         return Promise.race(promises);
     },
     setAll: (key, data) => {
-
+        const promises = [];
+        for (const db in storage) {
+            promises.push(storage[db].set(key, data));
+        }
+        return Promise.all(promises);
     }
 };
