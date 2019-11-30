@@ -1,21 +1,26 @@
 'use strict';
 
 import fingerprint from './util/fingerprint2';
-import async from './util/async';
+import handle from './util/handle';
 import render from './view/render';
 import storage from './storage';
 
 const fn = data => {
-    console.log(data);
+    render.off();
 }
 
 export default {
     start: () =>
         (async () => {
-            const hash = await async(fingerprint);
-            if (hash) {
+            const hash = await handle(fingerprint);
+            const isFirst = await handle(storage.get('cookiesDB', 'init'));
+
+            if (isFirst) {
+                render.off();
+                handle(storage.set('cookiesDB', 'init', hash));
+            } else {
                 render.on();
-                render.click('hello', fn);
+                render.add('click',hash, fn);
             }
         })()
 };

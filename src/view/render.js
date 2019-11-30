@@ -3,15 +3,15 @@
 import advCo from '../config/advertising';
      
 const elms = document.querySelectorAll(advCo.selector);
-const clickFn = (data, callback, e) => {
+const listener = (data, callback) => {
     callback(data);
 };
 
 export default {
     on: () => elms.forEach(elm => elm.style.display = 'block'),
     off: () => elms.forEach(elm => elm.style.display = 'none'),
-    click: (data, callback) => 
+    add: (type, data, callback) => 
         elms.forEach(elm => 
-            elm.addEventListener('click', clickFn.bind(null, data, callback))
-        )
+            elm.addEventListener(type, listener.bind(null, data, callback))
+        ),
 }

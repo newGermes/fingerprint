@@ -4,11 +4,24 @@ import createHash from './hash';
 
 export default new Promise((resolve, reject) => {
     try {
-        Fingerprint2.get(components => {
-            createHash(components, fingerprintCo)
-                .then(hash => resolve(hash))
-                .catch(e => console.error(e));
-        });
+        if (window.requestIdleCallback) {
+            requestIdleCallback(() => {
+                Fingerprint2.get(components => {
+                    createHash(components, fingerprintCo)
+                        .then(hash => resolve(hash))
+                        .catch(e => console.error(e));
+                });
+            });
+        } else {
+            setTimeout(() => {
+                Fingerprint2.get(components => {
+                    createHash(components, fingerprintCo)
+                        .then(hash => resolve(hash))
+                        .catch(e => console.error(e));
+                });
+            }, 500);    
+        }
+
     } catch (e) {
         reject(e);
     }
