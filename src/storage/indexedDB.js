@@ -1,6 +1,11 @@
 'use strict';
 
-export default () => {
+export default {
+    get: key => {
 
+    },
+    set: (key, data) => {
+
+    }
 };
-// https://habr.com/ru/post/213515/ IndexedDB
+// https://developer.mozilla.org/ru/docs/IndexedDB/Using_IndexedDB

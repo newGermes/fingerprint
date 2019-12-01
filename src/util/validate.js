@@ -2,7 +2,6 @@
 
 export default (fingerprint, stop) => {
     const dateNow = (new Date).getTime();
-
     fingerprint = fingerprint.find(elm => elm && elm.length);
     fingerprint = fingerprint ? JSON.parse(fingerprint) : false;
 

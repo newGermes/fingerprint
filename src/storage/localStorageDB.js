@@ -5,13 +5,22 @@ import dbwrapper from '../util/dbwrapper';
 export default {
     get: key => {
         return dbwrapper(() => {
-            return localStorage.getItem(key);
+            if (window.localStorage) {
+                return localStorage.getItem(key);
+            } else {
+                return '';
+            }
         });
     },
     set: (key, data) => {
         return dbwrapper(() => {
-            localStorage.setItem(key, JSON.stringify(data));
-            return true;
+            if (window.localStorage) {
+                localStorage.setItem(key, JSON.stringify(data));
+                return true;
+            } else {
+                return false;
+            }
+
         });
     }
 };
