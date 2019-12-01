@@ -1,15 +1,13 @@
 'use strict';
 
 import cookiesDB from './cookiesDB';
-import indexedDB from './indexedDB';
 import localStorageDB from './localStorageDB';
 import remoteDB from './remoteDB';
 
 const storage = {
-    cookiesDB, 
-    // indexedDB, 
+    cookiesDB,
     localStorageDB, 
-    // remoteDB 
+    remoteDB 
 };
 
 export default {
