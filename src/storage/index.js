@@ -8,7 +8,7 @@ import remoteDB from './remoteDB';
 const storage = {
     cookiesDB, 
     // indexedDB, 
-    // localStorageDB, 
+    localStorageDB, 
     // remoteDB 
 };
 

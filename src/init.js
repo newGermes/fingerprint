@@ -9,7 +9,7 @@ import validate from './util/validate';
 
 export default {
     start: () =>
-        (async () => {
+        !(async () => {
             const hash = await handle(fingerprint);
             const isFingerprint = await handle(storage.getAll(hash));
             const isClicked = validate(isFingerprint, advCo.period);
@@ -23,6 +23,6 @@ export default {
                     handle(storage.setAll(hash, { click: (new Date).getTime() }));
                 });
             }
-        })()
+        })
 };
 // adv should be off by default(css)
