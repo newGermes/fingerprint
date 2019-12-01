@@ -18,9 +18,9 @@ export default {
                 render.off();
             } else {
                 render.on();
-                render.add('click', hash, data => {
+                render.add('click', () => {
                     render.off();
-                    handle(storage.setAll(data, { click: (new Date).getTime() }));
+                    handle(storage.setAll(hash, { click: (new Date).getTime() }));
                 });
             }
         })()
