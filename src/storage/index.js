@@ -20,7 +20,7 @@ export default {
         for (const db in storage) {
             promises.push(storage[db].get(key));
         }
-        return Promise.race(promises);
+        return Promise.all(promises);
     },
     setAll: (key, data) => {
         const promises = [];

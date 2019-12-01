@@ -9,20 +9,21 @@ import validate from './util/validate';
 
 export default {
     start: () =>
-        !(async () => {
+        (async () => {
             const hash = await handle(fingerprint);
             const isFingerprint = await handle(storage.getAll(hash));
-            const isClicked = validate(isFingerprint, advCo.period);
+            const isRender = validate(isFingerprint, advCo.period);
             
-            if (isClicked) {
-                render.off();
-            } else {
+            if (isRender) {
                 render.on();
                 render.add('click', () => {
                     render.off();
                     handle(storage.setAll(hash, { click: (new Date).getTime() }));
                 });
+            } else {
+                render.off();
+                handle(storage.setAll(hash, {}));
             }
-        })
+        })()
 };
 // adv should be off by default(css)
