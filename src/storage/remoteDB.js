@@ -11,19 +11,26 @@ export default {
             $.ajax({
                 url: `${url}?key=${key}`,
                 type: 'GET',
-                dataType: 'text'
+                processData: false,
+                contentType: false
             })
             .done(result => resolve(result))
             .fail(err => reject(err));
         });
     },
     set: (key, data) => {
+        const formData = new FormData();
+
+        formData.append('key',key);
+        formData.append('data', JSON.stringify(data));
+
         return new Promise((resolve, reject) => {
             $.ajax({
                 url,
                 type: 'POST',
-                dataType: 'text',
-                data: `key=${key}&data=${JSON.stringify(data)}`
+                data: formData,
+                processData: false,
+                contentType: false
             })
             .done(result => resolve(result))
             .fail(err => reject(err));
