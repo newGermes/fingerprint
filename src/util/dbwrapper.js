@@ -5,8 +5,8 @@ export default callback => {
         setTimeout(() => {
             try {
                 resolve(callback());
-            } catch (e) {
-                reject(e);
+            } catch (err) {
+                reject(err);
             }
         }, 0);
     })

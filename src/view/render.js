@@ -2,15 +2,17 @@
 
 import advCo from '../config/advertising';
 
+const { selector } = advCo;
+
 const listener = (callback, event) => callback(event);
 
 export default {
-    on: () => document.querySelectorAll(advCo.selector)
+    on: () => document.querySelectorAll(selector)
                 .forEach(elm => elm.style.display = 'block'),
-    off: () => document.querySelectorAll(advCo.selector)
+    off: () => document.querySelectorAll(selector)
                 .forEach(elm => elm.style.display = 'none'),
     add: (type, callback) => 
-        document.querySelectorAll(advCo.selector).forEach(elm => 
+        document.querySelectorAll(selector).forEach(elm => 
             elm.addEventListener(type, listener.bind(null, callback))
         ),
 }

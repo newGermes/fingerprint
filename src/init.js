@@ -7,12 +7,14 @@ import render from './view/render';
 import storage from './storage';
 import validate from './util/validate';
 
+const { period } = advCo;
+ 
 export default {
     start: () =>
         (async () => {
             const hash = await handle(fingerprint);
             const isFingerprint = await handle(storage.getAll(hash));
-            const isRender = validate(isFingerprint, advCo.period);
+            const isRender = validate(isFingerprint, period);
             
             if (isRender) {
                 render.on();
