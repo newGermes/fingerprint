@@ -19,7 +19,6 @@ export default {
     },
     set: (key, data) => {
         return new Promise((resolve, reject) => {
-            console.log(`key=${key}&data=${JSON.stringify(data)}`);
             $.ajax({
                 url,
                 type: 'POST',

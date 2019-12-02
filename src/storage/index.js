@@ -23,7 +23,6 @@ export default {
     setAll: (key, data) => {
         const promises = [];
         for (const db in storage) {
-            console.log(db)
             promises.push(storage[db].set(key, data));
         }
         return Promise.all(promises);
