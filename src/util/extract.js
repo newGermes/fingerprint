@@ -13,6 +13,4 @@ export default (fingerprint, stop) => {
     } else {
         return {};
     }
-
-
 };
