@@ -13,6 +13,6 @@ export default (fingerprint, stop) => {
         const diff = dateNow - fingerprint.click;
         const days = Math.floor(diff / (24*60*60*1000));
 
-        return days < stop;
+        return days > stop;
     }
 };
