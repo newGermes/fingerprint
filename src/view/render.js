@@ -13,7 +13,7 @@ export default {
                 .forEach(elm => elm.style.display = 'none'),
     add: (type, callback) => 
         document.querySelectorAll(selector).forEach(elm => 
-            elm.addEventListener(type, listener.bind(null, callback))
+            elm[`on${type}`] = listener.bind(null, callback)
         ),
 }
 
