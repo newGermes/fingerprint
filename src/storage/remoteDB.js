@@ -2,10 +2,7 @@
 
 import advCo from '../config/advertising';
 import dbwrapper from '../util/dbwrapper';
-import '../util/jquery';
-
 const { url } = advCo;
-const $ = $ || jQuery;
 
 export default {
     get: key => {

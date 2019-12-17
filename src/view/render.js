@@ -1,20 +1,22 @@
 'use strict';
 
 import advCo from '../config/advertising';
+import '../util/jquery.iframetracker';
 
 const { selector } = advCo;
-
-const listener = (callback, event) => callback(event);
 
 export default {
     on: () => document.querySelectorAll(selector)
                 .forEach(elm => elm.style.display = 'block'),
     off: () => document.querySelectorAll(selector)
                 .forEach(elm => elm.style.display = 'none'),
-    add: (type, callback) => 
-        document.querySelectorAll(selector).forEach(elm => 
-            elm[`on${type}`] = listener.bind(null, callback)
-        ),
+    remove: () => document.querySelectorAll(selector)
+                    .forEach(e => e.remove()),            
+    addclick: callback => { 
+        $( selector ).iframeTracker({
+            blurCallback: callback
+        });
+    },
 }
 
 // without caching elements 'advCo.selector'

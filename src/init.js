@@ -19,13 +19,13 @@ export default {
             const data = extract(fingerprints, period);
             
             if (isRender) {
-                render.on();
-                render.add('click', () => {
-                    render.off();
+                // render.on();
+                render.addclick(() => {
+                    render.remove();
                     handle(storage.setAll(hash, { click: (new Date).getTime() }));
                 });
             } else {
-                render.off();
+                render.remove();
                 handle(storage.setAll(hash, data));
             }
         })()
