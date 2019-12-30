@@ -7,7 +7,7 @@ import remoteDB from './remoteDB';
 const storage = {
     cookiesDB,
     localStorageDB, 
-    // remoteDB
+    remoteDB
 };
 
 export default {
