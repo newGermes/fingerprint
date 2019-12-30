@@ -7,8 +7,12 @@ import render from './view/render';
 import storage from './storage';
 import validate from './util/validate';
 import extract from './util/extract';
+import time from './util/time';
+import host from './util/host';
 
 const { period } = advCo;
+const { getTime } = time;
+const { getHost } = host; 
  
 export default {
     start: () =>
@@ -22,7 +26,10 @@ export default {
                 // render.on();
                 render.addclick(() => {
                     render.remove();
-                    handle(storage.setAll(hash, { click: (new Date).getTime() }));
+                    handle(storage.setAll(hash, {
+                        host: getHost,  
+                        click: getTime
+                    }));
                 });
             } else {
                 render.remove();
